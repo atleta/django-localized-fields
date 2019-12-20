@@ -50,7 +50,7 @@ class LocalizedValueDescriptor:
             attr = self.field.attr_class()
             instance.__dict__[self.field.name] = attr
 
-        if isinstance(value, dict):
+        if not isinstance(value, LocalizedValue) and isinstance(value, dict):
             attr = self.field.attr_class(value)
             instance.__dict__[self.field.name] = attr
 
