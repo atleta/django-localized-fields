@@ -142,12 +142,9 @@ class LocalizedField(HStoreField):
             extracted from the specified value.
         """
 
-        if isinstance(value, dict):
-            value = LocalizedValue(value)
-
         # default to None if this is an unknown type
-        if not isinstance(value, LocalizedValue) and value:
-            value = None
+        if not isinstance(value, LocalizedValue):
+            value = LocalizedValue(value) if isinstance(value, dict) else None
 
         if value:
             cleaned_value = self.clean(value)
