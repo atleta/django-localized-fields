@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.utils import translation
 
+from localized_fields.value import LocalizedValue
+
 
 class LocalizedValueDescriptor:
     """The descriptor for the localized value attribute on the model instance.
